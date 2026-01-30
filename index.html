@@ -1,227 +1,411 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>KRKN — The Mythic Kraken</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KRKN — The Mythic Kraken</title>
 
-<meta name="description" content="KRKN — Ink the chart. Release the Kraken. A mythic memecoin on Solana (pump.fun)." />
-<meta property="og:title" content="KRKN — The Mythic Kraken" />
-<meta property="og:description" content="Ink the chart. Release the Kraken." />
-<meta property="og:image" content="assets/BATTLE.png" />
-<meta name="theme-color" content="#061B33" />
+  <meta name="description" content="KRKN — Ink the chart. Release the Kraken. A mythic memecoin on Solana (pump.fun)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KRKN — The Mythic Kraken" />
+  <meta property="og:description" content="Ink the chart. Release the Kraken." />
+  <meta property="og:image" content="assets/BATTLE.png" />
+  <meta name="theme-color" content="#061B33" />
 
-<style>
-:root{
-  --bg:#05060A; --bg2:#061B33; --ink:#19F6A3; --storm:#6B2BFF;
-  --text:#EAF2FF; --muted:rgba(234,242,255,.74);
-  --card:rgba(255,255,255,.06); --line:rgba(255,255,255,.12);
-  --radius:22px; --radius2:28px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
-  background:linear-gradient(180deg,var(--bg),var(--bg2));
-  color:var(--text);
-}
+  <style>
+    :root{
+      --bg:#05060A;
+      --bg2:#061B33;
+      --ink:#19F6A3;
+      --storm:#6B2BFF;
+      --text:#EAF2FF;
+      --muted:rgba(234,242,255,.74);
+      --card:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.12);
+      --shadow:0 18px 55px rgba(0,0,0,.55);
+      --radius:22px;
+      --radius2:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(107,43,255,.22), transparent 60%),
+        radial-gradient(900px 600px at 75% 15%, rgba(25,246,163,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
 
-a{text-decoration:none;color:inherit}
+    /* NAV */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;
+      backdrop-filter: blur(10px);
+      background:rgba(5,6,10,.62);
+      border-bottom:1px solid var(--line);
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.10em}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--ink);box-shadow:0 0 18px rgba(25,246,163,.75)}
+    .navlinks{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{
+      padding:10px 12px;border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      border-radius:999px;font-weight:750;
+    }
+    .pill:hover{border-color:rgba(25,246,163,.6)}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px 18px 90px}
 
-/* NAV */
+    /* HERO */
+    .hero{
+      margin-top:22px;
+      border-radius:var(--radius2);
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.70)),
+        url("assets/BATTLE.png");
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      min-height:580px;
+      display:flex;
+      align-items:flex-end;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        radial-gradient(900px 420px at 25% 30%, rgba(25,246,163,.18), transparent 60%),
+        radial-gradient(800px 420px at 80% 20%, rgba(107,43,255,.16), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.82));
+      pointer-events:none;
+    }
+    .heroInner{
+      position:relative;
+      padding:28px 22px;
+      width:100%;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:end;
+    }
+    @media(max-width:920px){ .heroInner{grid-template-columns:1fr} }
 
-.nav{
-  position:sticky;top:0;z-index:50;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 18px;background:rgba(0,0,0,.65);
-  border-bottom:1px solid var(--line);
-}
-.brand{font-weight:900;letter-spacing:.1em}
-.pill{
-  padding:8px 12px;border-radius:999px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.05);
-  font-weight:700;margin-left:8px;
-}
-.pill:hover{border-color:var(--ink)}
+    .heroCard{
+      background:rgba(0,0,0,.38);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:var(--radius);
+      padding:18px 18px;
+      backdrop-filter: blur(8px);
+    }
+    .label{
+      font-size:12px;letter-spacing:.18em;
+      color:rgba(234,242,255,.74);
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:52px;
+      line-height:1.02;
+      letter-spacing:-.02em;
+    }
+    @media (max-width:520px){ h1{font-size:40px} }
+    .glow{
+      color:var(--ink);
+      text-shadow:0 0 22px rgba(25,246,163,.35);
+    }
+    .sub{
+      margin:0;
+      color:rgba(234,242,255,.80);
+      font-size:16px;
+      line-height:1.6;
+      max-width:70ch;
+    }
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 14px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:850;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(25,246,163,.24), rgba(107,43,255,.18));
+      border-color:rgba(25,246,163,.36);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .tiny{margin-top:10px;font-size:12.5px;color:rgba(234,242,255,.64);line-height:1.5}
 
-.wrap{max-width:1120px;margin:auto;padding:24px 18px 90px}
+    .sideStack{display:grid;gap:12px}
+    .cardBox{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow: 0 12px 42px rgba(0,0,0,.35);
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:13px;
+      overflow:auto;
+      padding:12px;
+      border-radius:14px;
+      border:1px dashed rgba(25,246,163,.40);
+      background:rgba(0,0,0,.30);
+      cursor:pointer;
+      user-select:all;
+    }
+    .copyHint{
+      margin-top:8px;
+      font-size:12px;
+      color:rgba(234,242,255,.62);
+    }
 
-/* HERO */
+    /* SECTIONS */
+    .grid{margin-top:16px;display:grid;grid-template-columns:repeat(12, 1fr);gap:14px}
+    .col12{grid-column:span 12}
+    .col7{grid-column:span 7}
+    .col5{grid-column:span 5}
+    @media(max-width:920px){ .col7,.col5{grid-column:span 12} }
 
-.hero{
-  margin-top:22px;border-radius:var(--radius2);
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.72)),
-    url("assets/BATTLE.png") center/cover;
-  border:1px solid var(--line);box-shadow:0 18px 55px rgba(0,0,0,.55);
-  padding:48px 22px;min-height:580px;
-  display:flex;align-items:flex-end;
-}
-.heroCard{
-  background:rgba(0,0,0,.50);
-  padding:24px;border-radius:var(--radius);
-}
-h1{font-size:50px;margin:0 0 12px}
-.glow{color:var(--ink);text-shadow:0 0 22px rgba(25,246,163,.35)}
+    h2{margin:0 0 10px;font-size:22px}
+    .p{margin:0;color:var(--muted);line-height:1.7}
+    .list{margin:10px 0 0;padding:0 0 0 18px;color:var(--muted);line-height:1.8}
+    .divider{height:1px;background:rgba(255,255,255,.12);margin:16px 0}
 
-.btn{
-  padding:12px 14px;border-radius:14px;font-weight:800;
-  background:linear-gradient(135deg,rgba(25,246,163,.22),rgba(107,43,255,.18));
-  border:1px solid rgba(25,246,163,.35);color:#fff;margin-top:12px;
-}
-.btn:hover{transform:translateY(-1px);}
+    .imgFrame{
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.25);
+    }
+    .imgFrame img{display:block;width:100%;height:auto}
 
-/* CARDS */
+    /* PANELS */
+    .panelGrid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:14px;
+      margin-top:12px;
+    }
+    .panel{grid-column:span 6}
+    @media(max-width:920px){ .panel{grid-column:span 12} }
+    .caption{
+      margin-top:10px;
+      font-size:13px;
+      color:rgba(234,242,255,.68);
+      line-height:1.55;
+    }
+    .chapter{
+      display:flex;align-items:center;gap:10px;
+      margin:8px 0 12px;
+      color:rgba(234,242,255,.80);
+      font-weight:900;
+    }
+    .chip{
+      padding:7px 10px;border-radius:999px;
+      border:1px solid rgba(25,246,163,.38);
+      background:rgba(25,246,163,.10);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(234,242,255,.86);
+    }
 
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:18px;
-  margin-top:18px;
-  opacity:0;transform:translateY(30px);
-  transition:all .8s ease;
-}
-.card.visible{opacity:1;transform:translateY(0)}
+    /* CINEMATIC REVEAL */
+    .reveal{
+      opacity:0;
+      transform:translateY(26px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
 
-.label{font-size:13px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
-
-/* PANELS */
-
-.imgFrame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);}
-.imgFrame img{width:100%;display:block}
-
-.panelGrid{
-  display:grid;gap:14px;
-  grid-template-columns:repeat(2,1fr);
-  margin-top:14px;
-}
-@media(max-width:800px){.panelGrid{grid-template-columns:1fr}}
-
-.chapter{
-  margin-top:22px;font-weight:900;color:var(--ink);letter-spacing:.08em;
-}
-
-/* CA box */
-
-.caBox{
-  padding:12px;font-family:ui-monospace;border-radius:14px;
-  border:1px dashed var(--ink);background:rgba(0,0,0,.28);
-  cursor:pointer;margin-top:10px;
-}
-
-/* FOOTER */
-
-.footer{margin-top:30px;font-size:12px;color:var(--muted)}
-</style>
+    .footer{
+      margin-top:26px;
+      color:rgba(234,242,255,.58);
+      font-size:12.5px;
+      line-height:1.65;
+    }
+  </style>
 </head>
 
 <body>
-
-<div class="nav">
-  <div class="brand">KRKN</div>
-  <div>
-    <a class="pill" href="#story">Story</a>
-    <a class="pill" href="#chapters">Chapters</a>
-    <a class="pill" href="#buy">Buy</a>
-    <a class="pill" href="#links">Links</a>
-  </div>
-</div>
-
-<div class="wrap">
-
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="heroCard">
-      <div class="label">Solana • pump.fun • mythic ocean lore</div>
-      <h1>Ink the chart.<br><span class="glow">Release the Kraken.</span></h1>
-      <p>KRKN awakens from the abyss. The White Whale answers. The storm decides the winner.</p>
-      <a class="btn" href="https://pump.fun/coin/4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump" target="_blank">⚡ Buy on pump.fun</a>
-      <a class="btn" href="https://dexscreener.com/solana/2b4u4reg4chmrreutfjryunkfosgnqtxvuy4hfafjdgv" target="_blank">📈 View Chart</a>
-      <a class="btn" href="https://x.com/nVidiaNot" target="_blank">𝕏 Follow</a>
-    </div>
-  </section>
-
-  <!-- CONTRACT ADDRESS -->
-  <div class="card">
-    <h2>📜 Contract Address (click to copy)</h2>
-    <div class="caBox" id="ca">4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump</div>
-  </div>
-
-  <!-- STORY -->
-  <div class="card" id="story">
-    <h2>📜 KRKN Narrative</h2>
-    <p>Deep under the market — where weak hands panic and charts drown — KRKN wakes. It doesn’t chase… it surfaces. Across the storm, the White Whale roars back.</p>
-  </div>
-
-  <!-- CHAPTERS -->
-  <div class="card" id="chapters">
-    <h2>📖 Chapters of the Storm</h2>
-
-    <div class="chapter">CHAPTER I — The Surface Breaks</div>
-    <div class="panelGrid">
-      <div class="imgFrame"><img src="assets/panel_1_top_left.png" alt=""></div>
-      <div class="imgFrame"><img src="assets/panel_2_top_right.png" alt=""></div>
-    </div>
-
-    <div class="chapter">CHAPTER II — Blood in the Waves</div>
-    <div class="panelGrid">
-      <div class="imgFrame"><img src="assets/panel_3_bottom_left.png" alt=""></div>
-      <div class="imgFrame"><img src="assets/panel_4_bottom_right.png" alt=""></div>
+  <div class="nav">
+    <div class="brand"><span class="dot"></span> KRKN</div>
+    <div class="navlinks">
+      <a class="pill" href="#story">Story</a>
+      <a class="pill" href="#chapters">Chapters</a>
+      <a class="pill" href="#buy">Buy</a>
+      <a class="pill" href="#links">Links</a>
     </div>
   </div>
 
-  <!-- HOW TO BUY -->
-  <div class="card" id="buy">
-    <h2>🧭 How to Buy KRKN</h2>
-    <ol class="list">
-      <li>Install Phantom or Solflare wallet</li>
-      <li>Fund with SOL</li>
-      <li>Open pump.fun and buy KRKN</li>
-      <li>Verify contract address above</li>
-      <li>Hold & join community raids</li>
-    </ol>
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="heroInner">
+        <div class="heroCard">
+          <div class="label">Solana • pump.fun • mythic ocean lore</div>
+          <h1>Ink the chart. <span class="glow">Release the Kraken.</span></h1>
+          <p class="sub">
+            KRKN rises from the abyss. The White Whale answers. The storm decides the winner.
+            A memecoin built on lore, art, and raids.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="https://pump.fun/coin/4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump" target="_blank" rel="noreferrer">⚡ Buy on pump.fun</a>
+            <a class="btn" href="https://dexscreener.com/solana/2b4u4reg4chmrreutfjryunkfosgnqtxvuy4hfafjdgv" target="_blank" rel="noreferrer">📈 View Chart</a>
+            <a class="btn" href="https://x.com/nVidiaNot" target="_blank" rel="noreferrer">𝕏 Follow</a>
+          </div>
+
+          <div class="tiny">
+            Not financial advice. Always verify the CA before interacting.
+          </div>
+        </div>
+
+        <div class="sideStack">
+          <div class="cardBox">
+            <div class="label">Contract Address</div>
+            <div class="mono" id="ca">4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump</div>
+            <div class="copyHint" id="copyHint">Click the CA to copy.</div>
+          </div>
+
+          <div class="cardBox">
+            <div class="label">Battle Call</div>
+            <div class="p">
+              When ink hits the water, we post. When thunder cracks, we raid.
+              <b>Tentacle Time</b> means we’re live.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="grid reveal" id="story">
+      <div class="cardBox col7">
+        <h2>📜 The Narrative</h2>
+        <p class="p">
+          Deep under the market—where weak hands panic and charts drown—KRKN wakes.
+          It doesn’t chase… it <b>surfaces</b>. Across the storm, the White Whale roars back.
+        </p>
+        <div class="divider"></div>
+        <p class="p">
+          This is the clash of the deep: two myths, one storm, infinite memes.
+          We build the brand through art drops, lore posts, and community raids.
+        </p>
+      </div>
+
+      <div class="cardBox col5">
+        <h2>🌩️ The Moment</h2>
+        <div class="imgFrame">
+          <img src="assets/RIPWHALE.png" alt="KRKN artwork" />
+        </div>
+        <p class="p" style="margin-top:12px">
+          Built for Twitter. Built for pump.fun. Built for the storm.
+        </p>
+      </div>
+    </section>
+
+    <!-- CHAPTER PANELS -->
+    <section class="grid reveal" id="chapters">
+      <div class="cardBox col12">
+        <h2>📖 Chapters of the Storm</h2>
+
+        <div class="chapter"><span class="chip">Chapter I</span> The surface breaks.</div>
+        <div class="panelGrid">
+          <div class="panel">
+            <div class="imgFrame"><img src="assets/panel_1_top_left.png" alt="Chapter 1 panel" /></div>
+            <div class="caption">Lightning splits the sky — KRKN rises first. The sea turns black with ink.</div>
+          </div>
+          <div class="panel">
+            <div class="imgFrame"><img src="assets/panel_2_top_right.png" alt="Chapter 1 panel continued" /></div>
+            <div class="caption">The White Whale charges through foam and thunder. No fear. Only rage.</div>
+          </div>
+        </div>
+
+        <div class="chapter" style="margin-top:18px"><span class="chip">Chapter II</span> Blood in the waves.</div>
+        <div class="panelGrid">
+          <div class="panel">
+            <div class="imgFrame"><img src="assets/panel_3_bottom_left.png" alt="Chapter 2 panel" /></div>
+            <div class="caption">Tentacles wrap the ocean itself. The storm becomes a weapon.</div>
+          </div>
+          <div class="panel">
+            <div class="imgFrame"><img src="assets/panel_4_bottom_right.png" alt="Chapter 2 panel continued" /></div>
+            <div class="caption">KRKN doesn’t swim with whales — it drags myths under.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUY -->
+    <section class="grid reveal" id="buy">
+      <div class="cardBox col12">
+        <h2>🧭 How to Buy</h2>
+        <ol class="list">
+          <li>Download Phantom or Solflare.</li>
+          <li>Fund with SOL.</li>
+          <li>Buy KRKN on pump.fun.</li>
+          <li>Verify the contract address matches the CA above.</li>
+          <li>Join raids + spread the lore.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section class="grid reveal" id="links">
+      <div class="cardBox col12">
+        <h2>🔗 Official Links</h2>
+        <ul class="list">
+          <li><b>pump.fun:</b> <a href="https://pump.fun/coin/4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump" target="_blank" rel="noreferrer">Open KRKN on pump.fun</a></li>
+          <li><b>Dexscreener:</b> <a href="https://dexscreener.com/solana/2b4u4reg4chmrreutfjryunkfosgnqtxvuy4hfafjdgv" target="_blank" rel="noreferrer">View chart</a></li>
+          <li><b>Twitter/X:</b> <a href="https://x.com/nVidiaNot" target="_blank" rel="noreferrer">@nVidiaNot</a></li>
+          <li><b>Contract Address:</b> 4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="footer">
+      Disclaimer: This website is for entertainment/community purposes only. Crypto is risky. Nothing here is financial advice.
+    </div>
   </div>
 
-  <!-- LINKS -->
-  <div class="card" id="links">
-    <h2>🔗 Official Links</h2>
-    <ul class="list">
-      <li><b>Pump.fun:</b> <a href="https://pump.fun/coin/4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump" target="_blank">Open KRKN</a></li>
-      <li><b>Dexscreener:</b> <a href="https://dexscreener.com/solana/2b4u4reg4chmrreutfjryunkfosgnqtxvuy4hfafjdgv" target="_blank">View chart</a></li>
-      <li><b>Twitter/X:</b> <a href="https://x.com/nVidiaNot" target="_blank">@nVidiaNot</a></li>
-      <li><b>Contract:</b> 4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump</li>
-    </ul>
-  </div>
+  <script>
+    // Copy CA
+    const caEl = document.getElementById("ca");
+    const hint = document.getElementById("copyHint");
+    const CA = "4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump";
 
-  <div class="footer">
-    Disclaimer: This site is for entertainment and community use only — crypto is risky and nothing here is financial advice.
-  </div>
-</div>
+    caEl.addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(CA);
+        hint.textContent = "Copied ✅";
+        setTimeout(()=> hint.textContent = "Click the CA to copy.", 1200);
+      }catch(e){
+        hint.textContent = "Copy failed — select and copy manually.";
+        setTimeout(()=> hint.textContent = "Click the CA to copy.", 1600);
+      }
+    });
 
-<script>
-// Copy CA text
-const ca = document.getElementById("ca");
-ca.onclick = async () => {
-  try {
-    await navigator.clipboard.writeText(ca.innerText.trim());
-    ca.innerText = "Copied ✅ " + ca.innerText;
-    setTimeout(() => ca.innerText = "4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump", 1400);
-  } catch {}
-};
+    // Scroll reveal
+    const reveals = document.querySelectorAll(".reveal");
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("visible");
+      });
+    }, {threshold: 0.15});
 
-// Fade in on scroll
-const cards = document.querySelectorAll(".card");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("visible");
-  });
-}, {threshold:0.22});
-cards.forEach(card => observer.observe(card));
-</script>
-
+    reveals.forEach(r=>obs.observe(r));
+  </script>
 </body>
 </html>
-
