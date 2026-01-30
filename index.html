@@ -19,12 +19,128 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui;color:var(--text);background:linear-gradient(180deg,var(--bg),var(--bg2));overflow-x:hidden;}
 a{text-decoration:none;color:inherit}
+
 .nav{display:flex;justify-content:space-between;padding:14px 18px;background:#0008;border-bottom:1px solid var(--line)}
 .brand{font-weight:900;letter-spacing:.1em}
 .wrap{max-width:1100px;margin:auto;padding:24px 18px 90px}
 
-.hero{border-radius:var(--r
+.hero{border-radius:var(--radius);background:url("assets/BATTLE.png") center/cover;padding:50px 22px;min-height:560px;display:flex;align-items:flex-end;position:relative;}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,#000c);}
+.heroCard{position:relative;background:#0009;padding:22px;border-radius:var(--radius);max-width:600px;}
+h1{font-size:52px;margin:0 0 12px}
+.glow{color:var(--ink)}
+.btn{display:inline-block;padding:12px 14px;margin-top:12px;background:linear-gradient(135deg,#19F6A3,#6B2BFF);border-radius:14px;font-weight:800}
 
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-top:16px;opacity:0;transform:translateY(30px);transition:all .7s ease;}
+.card.visible{opacity:1;transform:translateY(0)}
 
+.panelGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+@media(max-width:800px){.panelGrid{grid-template-columns:1fr}}
+
+.imgFrame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+img{width:100%;display:block}
+.chapter{margin-top:22px;font-weight:800;color:var(--ink);letter-spacing:.1em;}
+
+.caBox{
+margin-top:10px;
+padding:12px;
+border-radius:12px;
+background:#000c;
+border:1px dashed var(--ink);
+cursor:pointer;
+font-family:monospace;
+font-size:13px;
+}
+
+.footer{margin-top:30px;font-size:12px;color:#aaa}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+<div class="brand">KRKN</div>
+<div><a href="https://x.com/nVidiaNot" target="_blank">X / Twitter</a></div>
+</div>
+
+<div class="wrap">
+
+<section class="hero">
+<div class="heroCard">
+<h1>Ink the chart.<br><span class="glow">Release KRKN.</span></h1>
+<p>The abyss answered. The Kraken rose. The whale bleeds. The storm begins.</p>
+<a class="btn" href="https://pump.fun/coin/4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump" target="_blank">Buy on pump.fun</a>
+</div>
+</section>
+
+<div class="card">
+<h2>📜 Contract Address (click to copy)</h2>
+<div class="caBox" id="ca">4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump</div>
+</div>
+
+<div class="card">
+<h2>📖 Chapters of the Storm</h2>
+
+<div class="chapter">CHAPTER I — THE SURFACE BREAKS</div>
+<div class="panelGrid">
+<div class="imgFrame"><img src="assets/panel_1_top_left.png"></div>
+<div class="imgFrame"><img src="assets/panel_2_top_right.png"></div>
+</div>
+
+<div class="chapter">CHAPTER II — BLOOD IN THE WAVES</div>
+<div class="panelGrid">
+<div class="imgFrame"><img src="assets/panel_3_bottom_left.png"></div>
+<div class="imgFrame"><img src="assets/panel_4_bottom_right.png"></div>
+</div>
+
+</div>
+
+<div class="card">
+<h2>🧭 How to Buy</h2>
+<ol>
+<li>Download Phantom or Solflare</li>
+<li>Add SOL</li>
+<li>Find KRKN on pump.fun</li>
+<li>Verify CA</li>
+<li>Join the raids</li>
+</ol>
+</div>
+
+<div class="card">
+<h2>🪙 Token Info</h2>
+<ul>
+<li>Name: The Mythic Kraken</li>
+<li>Ticker: KRKN</li>
+<li>Chain: Solana</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🔗 Dex Chart</h2>
+<p>View charts & liquidity on DexScreener:</p>
+<a class="btn" href="PASTE_DEXSCREENER_LINK_HERE" target="_blank">View on DexScreener</a>
+</div>
+
+<div class="footer">
+KRKN is a community memecoin. No financial promises.
+</div>
+
+</div>
+
+<script>
+const cards=document.querySelectorAll('.card');
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}})
+},{threshold:.2});
+cards.forEach(c=>obs.observe(c));
+
+document.getElementById("ca").onclick=()=>{
+navigator.clipboard.writeText("4Ppg8Gr6FXAM5wDmZUEAM63QNd4EvQ6hKiSPHBiLpump");
+alert("Contract address copied!");
+}
+</script>
+
+</body>
+</html>
 
        
