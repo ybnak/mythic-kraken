@@ -1,328 +1,168 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Mythic Kraken</title>
-  <meta name="description" content="From the deep, The Mythic Kraken rises. Ink the chart. Release the Kraken." />
-  <meta property="og:title" content="The Mythic Kraken" />
-  <meta property="og:description" content="A mythic ocean beast memecoin on Solana. Ink the chart. Release the Kraken." />
-  <!-- Put your banner image in the same folder and name it banner.jpg (or change below) -->
-  <meta property="og:image" content="banner.jpg" />
-  <meta name="theme-color" content="#061B33" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KRKN — The Mythic Kraken</title>
+<meta name="description" content="KRKN — Ink the chart. Release the Kraken." />
+<meta property="og:title" content="KRKN — The Mythic Kraken" />
+<meta property="og:description" content="Ink the chart. Release the Kraken." />
+<meta property="og:image" content="assets/BATTLE.png" />
+<meta name="theme-color" content="#061B33" />
 
-  <style>
-    :root{
-      --bg:#05060A;
-      --bg2:#061B33;
-      --ink:#19F6A3;
-      --storm:#6B2BFF;
-      --text:#EAF2FF;
-      --muted:rgba(234,242,255,.72);
-      --card:rgba(255,255,255,.06);
-      --line:rgba(255,255,255,.12);
-      --shadow: 0 18px 55px rgba(0,0,0,.55);
-      --radius:20px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background: radial-gradient(1200px 700px at 20% 10%, rgba(107,43,255,.22), transparent 60%),
-                  radial-gradient(900px 600px at 70% 20%, rgba(25,246,163,.14), transparent 55%),
-                  linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      overflow-x:hidden;
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:26px 18px 90px}
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      position:sticky;top:0;z-index:50;
-      backdrop-filter: blur(10px);
-      background:rgba(5,6,10,.6);
-      border-bottom:1px solid var(--line);
-      padding:14px 18px;
-    }
-    .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.5px}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--ink);box-shadow:0 0 18px rgba(25,246,163,.7)}
-    .navlinks{display:flex;gap:14px;flex-wrap:wrap}
-    .pill{
-      padding:10px 12px;border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      border-radius:999px;font-weight:650;
-    }
-    .pill:hover{border-color:rgba(25,246,163,.6)}
-    .hero{
-      margin-top:26px;
-      display:grid;grid-template-columns: 1.25fr .75fr;gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width:900px){ .hero{grid-template-columns:1fr} }
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .heroMain{padding:28px 26px}
-    h1{margin:0 0 10px;font-size:48px;line-height:1.05}
-    @media (max-width:520px){ h1{font-size:38px} }
-    .sub{color:var(--muted);font-size:16px;line-height:1.55;max-width:65ch}
-    .glow{
-      color:var(--ink);
-      text-shadow: 0 0 22px rgba(25,246,163,.35);
-    }
-    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 14px;border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      font-weight:750;
-    }
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(25,246,163,.26), rgba(107,43,255,.18));
-      border-color:rgba(25,246,163,.35);
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .small{font-size:13px;color:var(--muted);margin-top:14px}
-    .side{
-      display:flex;flex-direction:column;
-    }
-    .banner{
-  aspect-ratio: 16/10;
-  background:
-    radial-gradient(900px 420px at 30% 20%, rgba(25,246,163,.20), transparent 60%),
-    radial-gradient(650px 380px at 75% 35%, rgba(107,43,255,.18), transparent 55%),
-    url("BATTLE.png");
-  background-size: cover;
-  background-position:center;
-  min-height:240px;
+<style>
+:root{
+--bg:#05060A; --bg2:#061B33; --ink:#19F6A3; --storm:#6B2BFF;
+--text:#EAF2FF; --muted:rgba(234,242,255,.72);
+--card:rgba(255,255,255,.06); --line:rgba(255,255,255,.12);
+--radius:22px;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:system-ui;color:var(--text);
+background:linear-gradient(180deg,var(--bg),var(--bg2));
+overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.nav{display:flex;justify-content:space-between;padding:14px 18px;background:#0008;border-bottom:1px solid var(--line)}
+.brand{font-weight:900;letter-spacing:.1em}
+.wrap{max-width:1100px;margin:auto;padding:24px 18px 90px}
+
+.hero{
+border-radius:var(--radius);
+background:url("assets/BATTLE.png") center/cover;
+padding:50px 22px;
+min-height:560px;
+display:flex;align-items:flex-end;
+position:relative;
+}
+.hero::after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(180deg,transparent,#000c);
+}
+.heroCard{
+position:relative;background:#0009;padding:22px;border-radius:var(--radius);
+max-width:600px;
+}
+h1{font-size:52px;margin:0 0 12px}
+.glow{color:var(--ink)}
+.btn{
+display:inline-block;padding:12px 14px;margin-top:12px;
+background:linear-gradient(135deg,#19F6A3,#6B2BFF);
+border-radius:14px;font-weight:800
 }
 
-    }
-    .sideBody{padding:18px}
-    .label{font-size:12px;letter-spacing:.16em;color:rgba(234,242,255,.7);text-transform:uppercase}
-    .caBox{
-      margin-top:10px;padding:12px 12px;border-radius:14px;
-      border:1px dashed rgba(25,246,163,.45);
-      background:rgba(0,0,0,.22);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size:13px;
-      overflow:auto;
-    }
-    .grid{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-    }
-    .col6{grid-column: span 6;}
-    .col4{grid-column: span 4;}
-    .col8{grid-column: span 8;}
-    .col12{grid-column: span 12;}
-    @media(max-width:900px){
-      .col6,.col4,.col8{grid-column: span 12;}
-    }
-    h2{margin:0 0 10px;font-size:22px}
-    .p{margin:0;color:var(--muted);line-height:1.65}
-    .list{margin:10px 0 0;padding:0 0 0 18px;color:var(--muted);line-height:1.7}
-    .tagRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .tag{font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}
-    .divider{height:1px;background:var(--line);margin:20px 0}
-    .footer{
-      margin-top:26px;color:rgba(234,242,255,.6);font-size:12.5px;line-height:1.6
-    }
-  </style>
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:var(--radius);
+padding:18px;
+margin-top:16px;
+opacity:0;
+transform:translateY(30px);
+transition:all .7s ease;
+}
+.card.visible{opacity:1;transform:translateY(0)}
+
+.panelGrid{
+display:grid;grid-template-columns:repeat(2,1fr);
+gap:14px;margin-top:14px
+}
+@media(max-width:800px){.panelGrid{grid-template-columns:1fr}}
+
+.imgFrame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+img{width:100%;display:block}
+
+.chapter{
+margin-top:22px;
+font-weight:800;
+color:var(--ink);
+letter-spacing:.1em;
+}
+
+.footer{margin-top:30px;font-size:12px;color:#aaa}
+</style>
 </head>
 
 <body>
-  <div class="nav">
-    <div class="brand"><span class="dot"></span> THE MYTHIC KRAKEN</div>
-    <div class="navlinks">
-      <a class="pill" href="#story">Story</a>
-      <a class="pill" href="#buy">How to Buy</a>
-      <a class="pill" href="#token">Token</a>
-      <a class="pill" href="#roadmap">Roadmap</a>
-      <a class="pill" href="#links">Links</a>
-    </div>
-  </div>
 
-  <div class="wrap">
-    <section class="hero">
-      <div class="card heroMain">
-        <div class="label">Solana • pump.fun</div>
-        <h1>Ink the chart. <span class="glow">Release the Kraken.</span></h1>
-        <p class="sub">
-          Deep under the market—where weak hands panic and charts drown—<b>The Mythic Kraken</b> wakes up.
-          It doesn’t chase… it <i>surfaces</i>. When ink hits the water, the community knows:
-          <b>it’s Kraken season.</b>
-        </p>
+<div class="nav">
+<div class="brand">KRKN</div>
+<div><a href="https://x.com/nVidiaNot" target="_blank">X / Twitter</a></div>
+</div>
 
-        <div class="ctaRow">
-          <a class="btn primary" href="#buy">⚡ Buy on pump.fun</a>
-          <a class="btn" href="#links">🌊 Join the Crew</a>
-          <a class="btn" href="#media">🖼️ Art / Memes</a>
-        </div>
+<div class="wrap">
 
-        <div class="small">
-          Not financial advice. Meme coin energy only. Swim at your own risk.
-        </div>
-      </div>
-
-      <div class="card side">
-        <div class="banner" aria-label="Banner image"></div>
-        <div class="sideBody">
-          <div class="label">Contract Address</div>
-          <div class="caBox" id="ca">PASTE_CONTRACT_ADDRESS_HERE</div>
-          <div class="tagRow">
-            <span class="tag">0/0 tax (if true)</span>
-            <span class="tag">Community-driven</span>
-            <span class="tag">Mythic ocean lore</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid" id="story">
-      <div class="card col8" style="padding:18px">
-        <h2>📜 The Story</h2>
-        <p class="p">
-          The sea isn’t empty — it’s <b>crowded</b>. Legends move beneath the surface.
-          The White Whale patrols the waves like a silent god… until the storm splits the sky.
-          From the abyss, the Kraken rises—ancient, angry, and dripping neon ink.
-        </p>
-        <div class="divider"></div>
-        <p class="p">
-          This isn’t just a coin. It’s a myth you can join.
-          When the ink spreads, we raid. When the thunder hits, we post.
-          And when the charts get rough… we don’t sink — we <b>surface</b>.
-        </p>
-        <ul class="list">
-          <li><b>Ink the Chart</b> = momentum</li>
-          <li><b>Tentacle Time</b> = raid calls</li>
-          <li><b>Deep Dive</b> = dip energy (no promises)</li>
-        </ul>
-      </div>
-
-      <div class="card col4" style="padding:18px">
-        <h2>⚓ Mission</h2>
-        <p class="p">
-          Build the most iconic ocean-beast meme brand on Solana:
-          art, lore drops, raids, and community quests.
-        </p>
-        <div class="divider"></div>
-        <h2>🧿 Vibe</h2>
-        <p class="p">
-          Dark fantasy + storm energy + meme culture.
-          If you love lore and chaos… welcome aboard.
-        </p>
-      </div>
-    </section>
-
-    <section class="grid" id="buy">
-      <div class="card col12" style="padding:18px">
-        <h2>🧭 How to Buy (copy/paste steps)</h2>
-        <ol class="list">
-          <li>Create or open a Solana wallet (Phantom / Solflare).</li>
-          <li>Fund it with SOL.</li>
-          <li>Open pump.fun and search <b>The Mythic Kraken</b>.</li>
-          <li>Verify the contract address matches the CA above.</li>
-          <li>Buy your amount and join the community raids.</li>
-        </ol>
-        <p class="small">Tip: Always verify CA before buying. Watch out for clones.</p>
-      </div>
-    </section>
-
-    <section class="grid" id="token">
-      <div class="card col6" style="padding:18px">
-        <h2>🪙 Token Info</h2>
-        <ul class="list">
-          <li><b>Name:</b> The Mythic Kraken</li>
-          <li><b>Ticker:</b> KRKN (or your choice)</li>
-          <li><b>Chain:</b> Solana</li>
-          <li><b>Total Supply:</b> 1,000,000,000 (edit if different)</li>
-          <li><b>Taxes:</b> 0/0 (only if true)</li>
-        </ul>
-      </div>
-
-      <div class="card col6" style="padding:18px">
-        <h2>🧨 Rules of the Sea</h2>
-        <ul class="list">
-          <li>No fake links. No scams. No paid shills.</li>
-          <li>We win with memes, art, and community.</li>
-          <li>We don’t promise profits — we promise <b>vibes</b>.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="grid" id="roadmap">
-      <div class="card col12" style="padding:18px">
-        <h2>🌩️ Roadmap (simple + real)</h2>
-        <div class="grid" style="margin-top:8px">
-          <div class="card col4" style="padding:16px">
-            <div class="label">Phase I — Wake</div>
-            <p class="p">Launch, brand kit, banner art, meme pack, community channels.</p>
-          </div>
-          <div class="card col4" style="padding:16px">
-            <div class="label">Phase II — Ink</div>
-            <p class="p">Daily raids, lore drops, sticker set, community quests.</p>
-          </div>
-          <div class="card col4" style="padding:16px">
-            <div class="label">Phase III — Surface</div>
-            <p class="p">Partnerships, bigger art reveals, community tools + website upgrades.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid" id="media">
-      <div class="card col12" style="padding:18px">
-        <h2>🖼️ Media</h2>
-        <p class="p">
-          Drop your battle art and memes here. The ocean feeds on content.
-          (Add images by placing them in the same folder and linking them below.)
-        </p>
-        <ul class="list">
-          <li><b>Banner:</b> banner.jpg</li>
-          <li><b>Logo:</b> logo.png</li>
-          <li><b>Square:</b> pfp.png (1000×1000 for pump.fun)</li>
-        </ul>
-      </div>
-    </section>
-
-   <section class="grid" id="links">
-  <div class="card col12" style="padding:18px">
-    <h2>🔗 Links</h2>
-    <ul class="list">
-      <li><b>pump.fun:</b> PASTE_PUMPFUN_LINK_HERE</li>
-      <li><b>Twitter/X:</b> https://x.com/nVidiaNot</li>
-      <li><b>Telegram:</b> https://t.me/YOUR_GROUP</li>
-      <li><b>Dexscreener:</b> PASTE_DEXSCREENER_LINK_HERE</li>
-    </ul>
-  </div>
+<section class="hero">
+<div class="heroCard">
+<h1>Ink the chart.<br><span class="glow">Release KRKN.</span></h1>
+<p>The abyss has answered. The Kraken rises. The whale bleeds. The storm begins.</p>
+<a class="btn">Buy on pump.fun (Soon)</a>
+</div>
 </section>
 
+<div class="card">
+<h2>📜 The Legend Begins</h2>
+<p>The ocean shakes. Lightning fractures the sky. From the depths, KRKN awakens.</p>
+<img src="assets/RIPWHALE.png">
+</div>
 
-    <div class="footer">
-      Disclaimer: This website is for entertainment and community purposes only. Cryptocurrency is risky. Nothing here is financial advice.
-    </div>
-  </div>
+<div class="card">
+<h2>📖 Chapters of the Storm</h2>
 
-  <script>
-    // Click to copy CA
-    const ca = document.getElementById("ca");
-    ca.style.cursor = "pointer";
-    ca.title = "Click to copy";
-    ca.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(ca.innerText.trim());
-        ca.innerText = "COPIED ✅ " + ca.innerText;
-        setTimeout(() => ca.innerText = "PASTE_CONTRACT_ADDRESS_HERE", 1200);
-      } catch(e) {}
-    });
-  </script>
+<div class="chapter">CHAPTER I — THE SURFACE BREAKS</div>
+<div class="panelGrid">
+<div class="imgFrame"><img src="assets/panel_1_top_left.png"></div>
+<div class="imgFrame"><img src="assets/panel_2_top_right.png"></div>
+</div>
+
+<div class="chapter">CHAPTER II — BLOOD IN THE WAVES</div>
+<div class="panelGrid">
+<div class="imgFrame"><img src="assets/panel_3_bottom_left.png"></div>
+<div class="imgFrame"><img src="assets/panel_4_bottom_right.png"></div>
+</div>
+
+</div>
+
+<div class="card">
+<h2>🧭 How to Buy</h2>
+<ol>
+<li>Download Phantom or Solflare</li>
+<li>Add SOL</li>
+<li>Find KRKN on pump.fun</li>
+<li>Verify CA</li>
+<li>Join the raids</li>
+</ol>
+</div>
+
+<div class="card">
+<h2>🪙 Token Info</h2>
+<ul>
+<li>Name: The Mythic Kraken</li>
+<li>Ticker: KRKN</li>
+<li>Chain: Solana</li>
+</ul>
+</div>
+
+<div class="footer">
+KRKN is a community memecoin. No financial promises.
+</div>
+
+</div>
+
+<script>
+// scroll animation
+const cards=document.querySelectorAll('.card');
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('visible')}
+})
+},{threshold:.2});
+cards.forEach(c=>obs.observe(c));
+</script>
+
 </body>
 </html>
+
+
+       
